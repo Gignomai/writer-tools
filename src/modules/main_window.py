@@ -1,4 +1,5 @@
 from modules.toolbar import Toolbar
+from modules.menubar import MenuBar
 from modules.text_view import TextView
 from modules.footer import Footer
 
@@ -18,7 +19,7 @@ class MainWindow(Gtk.Window):
         self.add(self.grid)
         
         scrolledwindow = TextView.create_scrolledwindow()
-        self.grid.attach(scrolledwindow, 0, 1, 3, 1)
+        self.grid.attach(scrolledwindow, 0, 2, 3, 1)
 
         self.textview = TextView.create_textview()
         self.textbuffer = TextView.create_textbuffer(self.textview) 
@@ -31,6 +32,8 @@ class MainWindow(Gtk.Window):
         )
         scrolledwindow.add(self.textview)
                         
-        self.grid.attach(Toolbar(self), 0, 0, 3, 1)
+        self.grid.attach(Toolbar(self), 0, 1, 3, 1)
+        #self.grid.attach(MenuBar(self), 0, 1, 3, 1)        
         
+        MenuBar(self)
         Footer(self)

@@ -10,7 +10,7 @@ class Footer():
         check_editable = Gtk.CheckButton(label="Editable")
         check_editable.set_active(True)
         check_editable.connect("toggled", self.on_editable_toggled)
-        window.grid.attach(check_editable, 0, 2, 1, 1)
+        window.grid.attach(check_editable, 0, 3, 1, 1)
 
         check_cursor = Gtk.CheckButton(label="Cursor Visible")
         check_cursor.set_active(True)
@@ -18,7 +18,7 @@ class Footer():
         window.grid.attach_next_to(check_cursor, check_editable, Gtk.PositionType.RIGHT, 1, 1)
 
         radio_wrapnone = Gtk.RadioButton.new_with_label_from_widget(None, "No Wrapping")
-        window.grid.attach(radio_wrapnone, 0, 3, 1, 1)
+        window.grid.attach(radio_wrapnone, 0, 4, 1, 1)
 
         radio_wrapchar = Gtk.RadioButton.new_with_label_from_widget(radio_wrapnone, "Character Wrapping")
         window.grid.attach_next_to(radio_wrapchar, radio_wrapnone, Gtk.PositionType.RIGHT, 1, 1)

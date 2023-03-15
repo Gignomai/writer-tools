@@ -9,7 +9,6 @@ class Toolbar(Gtk.Toolbar):
         Gtk.Toolbar.__init__(self)
         
         self.window = window
-        self.applied_tags = dict()
         
         tag_bold = window.textbuffer.create_tag("bold", weight=Pango.Weight.BOLD)
         tag_italic = window.textbuffer.create_tag("italic", style=Pango.Style.ITALIC)
@@ -75,7 +74,6 @@ class Toolbar(Gtk.Toolbar):
             if start.has_tag(tag):
                 self.window.textbuffer.remove_tag(tag, start, end)
             else:
-                self.applied_tags[bounds] = tag
                 self.window.textbuffer.apply_tag(tag, start, end)
                 
     def on_justify_toggled(self, justification):
