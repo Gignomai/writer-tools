@@ -1,5 +1,5 @@
 from tkinter import Menu
-
+from domain.event_manager.EventManager import EventManager
 
 class FileMenu(Menu):
 
@@ -18,7 +18,10 @@ class FileMenu(Menu):
 
         # add menu items to the File menu
         # file_menu.add_command(label="Exit", command=self.on_exit)
-        file_menu.add_command(label='New')
+        file_menu.add_command(
+            label='New',
+            command=self.on_new
+        )
         file_menu.add_command(
             label='Open...',
             command=self.on_open
@@ -37,6 +40,12 @@ class FileMenu(Menu):
             label="File",
             menu=file_menu
         )
+
+    def on_new(self):
+        print("New file")
+        event_manager = EventManager()
+        subscribers = event_manager
+
 
     def on_open(self):
         print("open a file")
